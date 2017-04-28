@@ -9,6 +9,7 @@ class TasksController < ApplicationController
   def show
     @task=Task.find(params[:id])
     @comments=Comment.where(task_id: params[:id])
+    @compliment = Compliment.new
   end
 
   def edit
