@@ -11,7 +11,7 @@ class CommentsController < ApplicationController
 
   def destroy
     Comment.destroy(params[:id])
-    redirect_to "/"
+    redirect_to (:back)
   end
 
 end
