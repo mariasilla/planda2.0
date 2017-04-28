@@ -5,6 +5,7 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
 Team.create(name: "Group 1")
 
 User.create(email:"Ali@email.com",password:"123456",name: "Ali", image_url:"https://scontent-iad3-1.xx.fbcdn.net/v/t1.0-1/p240x240/14718765_10107245015278123_1453619577380225262_n.jpg?oh=e4f195ce976f639f617faf7649069fcb&oe=59862E51")
@@ -27,3 +28,4 @@ Comment.create(content:"Bronze AF",task_id:2)
 Comment.create(content: "Need more detergent",task_id:3)
 Comment.create(content:"Sux", task_id:5)
 Comment.create(content:"Change filter", task_id:10)
+

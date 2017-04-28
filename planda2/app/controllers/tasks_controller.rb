@@ -9,6 +9,7 @@ class TasksController < ApplicationController
   def show
     @task=Task.find(params[:id])
     @comments=Comment.where(task_id: params[:id])
+    @compliment = Compliment.new
   end
 
   def edit
@@ -18,7 +19,7 @@ class TasksController < ApplicationController
 
   def update
     @task=Task.find(params[:id])
-    @task.update(name: params[:name], frequency: params[:frequency], playlist_url: params[:playlist_url], completeness: params[:completeness])
+    @task.update(name: params[:name], frequency: params[:frequency], completeness_level: params[:completeness_level])
        redirect_to "/tasks"
   end
 

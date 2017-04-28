@@ -2,7 +2,6 @@
 
  Name: <%= text_field_tag :name, @task.name %> <br>
  Frequency: <%= text_field_tag :frequency, @task.frequency %> <br>
- Playlist URL: <%= text_field_tag :playlist_url, @task.playlist_url %> <br>
- Completeness: <%= text_field_tag :completeness, @task.completeness %> <br>
+ Completeness Level: <%= text_field_tag :completeness_level, @task.completeness_level %> <br>
     <%= c.submit %>
 <% end %>
