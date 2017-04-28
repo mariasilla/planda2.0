@@ -5,10 +5,18 @@
 <%=@task["cycles"]%><br>
 
 
-<a href="/tasks/<%= @task.id %>/edit">Edit</a>
+<a href="/tasks/<%= @task.id %>/edit">Edit</a><br><br>
 
+<h2>Comments:</h2>
 <% @comments.each do |comment|%>
-<%=comment["content"]%>
+<%=comment["content"]%><br>
 <%end%>
+
+<form action="/comments" method="POST">
+  <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+  <%= hidden_field_tag :task_id, value = @task.id %>
+  <label> Comment on this task: </label><input name="content"><br>
+  <button type="submit">Submit</button>
+</form>
 
 <iframe src="https://open.spotify.com/embed?uri=spotify%3Auser%3Aspotify%3Aplaylist%3A2PXdUld4Ueio2pHcB6sM8j" width="300" height="380" frameborder="0" allowtransparency="true"></iframe>
