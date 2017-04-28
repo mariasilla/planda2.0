@@ -1,0 +1,8 @@
+<%= form_for @task, :method => :PUT do |c| %>
+
+ Name: <%= text_field_tag :name, @task.name %> <br>
+ Frequency: <%= text_field_tag :frequency, @task.frequency %> <br>
+ Playlist URL: <%= text_field_tag :playlist_url, @task.playlist_url %> <br>
+ Completeness: <%= text_field_tag :completeness, @task.completeness %> <br>
+    <%= c.submit %>
+<% end %>

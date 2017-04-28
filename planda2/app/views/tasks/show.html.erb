@@ -1,0 +1,14 @@
+<h1><%=@task["name"]%></h1>
+<%=@task["frequency"]%><br>
+<%=@task["completeness_level"]%><br>
+<%=@task["completed"]%><br>
+<%=@task["cycles"]%><br>
+
+
+<a href="/tasks/<%= @task.id %>/edit">Edit</a>
+
+<% @comments.each do |comment|%>
+<%=comment["content"]%>
+<%end%>
+
+<iframe src="https://open.spotify.com/embed?uri=spotify%3Auser%3Aspotify%3Aplaylist%3A2PXdUld4Ueio2pHcB6sM8j" width="300" height="380" frameborder="0" allowtransparency="true"></iframe>

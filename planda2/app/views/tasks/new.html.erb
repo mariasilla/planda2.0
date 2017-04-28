@@ -1,0 +1,11 @@
+<h1> ADD A NEW TASK</h1>
+<form action ="/tasks" method="POST">
+<%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+  New Task Name: <input name="name"><br><br>
+  Frequency: <input name="frequency"><br><br>
+  Completeness: <input name="completeness"><br><br>
+  Playlist: <input name="playlist_url"><br><br>
+  <input name = 'user_id' type = 'hidden' value='@user[:id]'>
+  <button type="submit">Add New Task</button>
+</form>
+<form action = "/tasks"><button type="submit">Cancel</button></form>
