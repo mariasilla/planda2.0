@@ -1,0 +1,9 @@
+<h1><%= @team["name"]%> team members:</h1>
+
+<% @users.each do |user|%>
+<ul>
+  <li><%=user["name"]%><br></li>
+</ul>
+<% end %>
+
+<a href="/teams"> Back to your teams </a>

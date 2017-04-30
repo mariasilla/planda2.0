@@ -1,0 +1,8 @@
+<h1>You're the member of these teams:</h1>
+
+<% @teams.each do |team|%>
+<ul>
+  <li><a href="/teams/<%=team["id"]%>"><%=team["name"]%></a><br></li>
+</ul>
+
+<% end %>
