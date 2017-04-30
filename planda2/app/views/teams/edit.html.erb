@@ -1,0 +1,7 @@
+Change The Team Name:
+
+<%= form_for @team, :method => :PUT do |c| %>
+
+ Name: <%= text_field_tag :name, @team.name %> <br>
+    <%= c.submit %>
+<% end %>

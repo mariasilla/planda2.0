@@ -24,14 +24,13 @@ class TasksController < ApplicationController
   end
 
   def edit
-
     @task=Task.find(params[:id])
   end
 
   def update
     @task=Task.find(params[:id])
     @task.update(name: params[:name], frequency: params[:frequency], completeness_level: params[:completeness_level])
-       redirect_to "/tasks"
+    redirect_to "/tasks"
   end
 
   def new

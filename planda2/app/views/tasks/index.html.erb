@@ -6,7 +6,7 @@ To Do:<br>
 <% @onceTasksToDo.each do |task|%>
 <a href="/tasks/<%=task["id"]%>"><%=task["name"]%></a><br>
 <% end %>
-<br>
+
 Done:<br>
 <% @onceTasksDone.each do |task|%>
 <a href="/tasks/<%=task["id"]%>"><%=task["name"]%></a><br>
@@ -36,4 +36,10 @@ Done<br>
 <% @weekTasksDone.each do |task|%>
 <a href="/tasks/<%=task["id"]%>"><%=task["name"]%></a><br>
 <% end %>
+
+
+<ul>
+  <li><a href="/tasks/new"> Add a New Task </a></li>
+  <li><a href="/teams"> Your teams </a></li>
+</ul>
 

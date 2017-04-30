@@ -1,6 +1,7 @@
 class DailyCheckJob < ApplicationJob
   queue_as :default
 
+
   def perform(task)
      if task.frequency == daily
        task.cycles++
@@ -10,5 +11,5 @@ class DailyCheckJob < ApplicationJob
        task.completeness="still need to start"
      end
   end
-
 end
+
