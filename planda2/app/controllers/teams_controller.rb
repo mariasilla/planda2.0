@@ -25,7 +25,7 @@ class TeamsController < ApplicationController
     @team.update(name: params[:name])
        redirect_to "/teams"
   end
-  end
+
 
   def destroy
     Grouping.where(:team_id =>params[:id]).destroy_all
