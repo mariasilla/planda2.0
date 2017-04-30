@@ -4,8 +4,8 @@ class TasksController < ApplicationController
 
   def index
     @dayTasks=Task.where(:frequency => "daily", :user_id => current_user[:id])
-    @weekTasks=Task.where(:frequency => "daily", :user_id => current_user[:id])
-    @onceTasks=Task.where(:frequency => "daily", :user_id => current_user[:id])
+    @weekTasks=Task.where(:frequency => "weekly", :user_id => current_user[:id])
+    @onceTasks=Task.where(:frequency => "once", :user_id => current_user[:id])
 
     @dayTasksToDo=@dayTasks.where.not(:completeness_level =>"Done")
     @dayTasksDone=@dayTasks.where(:completeness_level =>"Done")
