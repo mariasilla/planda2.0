@@ -3,6 +3,7 @@ class TeamsController < ApplicationController
   def index
     @user = current_user
     @teams = @user.teams
+    @all_teams = Team.all
   end
 
   def show
