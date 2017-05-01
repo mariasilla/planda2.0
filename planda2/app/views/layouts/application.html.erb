@@ -19,7 +19,7 @@
         <li><a href="/tasks">My Tasks</a></li>
         <li><a href="/teams">My Teams</a></li>
         <li><a href="/users/edit">Edit Account</a></li>
-        <li><a href="/users/sign_out">Sign Out</a></li>
+        <li><%= link_to('Logout', destroy_user_session_path, :method => :delete) %>  </li>
 
 
         <% else %>
