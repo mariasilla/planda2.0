@@ -14,8 +14,7 @@ class TasksController < ApplicationController
     @weekTasksDone=@weekTasks.where(:completeness_level =>"Done")
     @onceTasksToDo=@onceTasks.where.not(:completeness_level =>"Done")
     @onceTasksDone=@onceTasks.where(:completeness_level =>"Done")
-
-  end
+end
 
   def show
     @task=Task.find(params[:id])
@@ -35,17 +34,16 @@ class TasksController < ApplicationController
   end
 
   def new
-    @task = Task.new
-
+    @user = current_user
+    @teams = @user.teams
   end
 
   def create
-
+    @task = Task.new
     Task.create(name: params[:name],
                 frequency: params[:frequency],
                 completeness_level: params[:completeness_level],
-                user_id: current_user[:id])
-byebug
+                user_id: current_user[:id],team_id: params[:team_id])
     redirect_to "/tasks"
   end
 

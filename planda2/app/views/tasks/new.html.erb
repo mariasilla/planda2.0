@@ -1,37 +1,43 @@
 <h1> ADD A NEW TASK</h1>
 
-
 <form action ="/tasks" method="POST">
 <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
 
  New Task Name: <input name="name"><br><br>
+   <div class="input-field col s12">
+      Frequency:
+     <select name="frequency" material-select>
+       <option value="" disabled selected>Choose your option</option>
+       <option value="Once">Once</option>
+       <option value="Daily">Daily</option>
+       <option value="Weekly">Weekly</option>
+     </select>
+   </div><br><br>
 
- Frequency:
-  <select class="browser-default">
-  <option value="" disabled selected>Select...</option>
-  <option value ="Once">Once</option>
-  <option value ="Daily">Daily</option>
-  <option value ="Weekly">Weekly</option>
-  </select><br><br>
+   <div class="input-field col s12">
+      Completeness Level:
+     <select name="completeness_level" material-select>
+       <option value="" disabled selected>Choose your option</option>
+       <option value="Still Need to Start">Still Need to Start</option>
+       <option value="Barely started">Barely started</option>
+       <option value="Half Way Through">Half Way Through</option>
+       <option value="Almost Done">Half Way Through</option>
+       <option value="Done">Half Way Through</option>
+     </select>
+   </div><br><br>
 
- Completeness Level:
-  <select class="browser-default">
-  <option value="" disabled selected>Select...</option>
-  <option value ="Still Need to Start">Still Need to Start</option>
-  <option value ="Barely started">Barely Started</option>
-  <option value ="Half way Through">Half Way Through</option>
-  <option value ="Almost Done">Almost Done</option>
-  <option value ="Done">Done</option>
-  </select><br><br>
+   <div class="input-field col s12">
+    Team:
+     <select name="team_id" material-select>
+     <% @teams.each do |team|%>
+       <option value="<%=team["id"]%>"><%=team["name"]%></option><br>
+     <%end %>
+    </div><br><br>
 
-  <input name = 'user_id' type = 'hidden' value='@user["id"]'>
+   <input name = 'user_id' type = 'hidden' value='@user["id"]'>
 
-  <button type="submit">Add New Task</button>
+   <button type="submit">Add New Task</button>
+ </form>
 
-</form>
-
-<br>
 
 <form action = "/tasks"><button type="submit">Cancel</button></form>
-
-
