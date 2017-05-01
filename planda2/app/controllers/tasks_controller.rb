@@ -40,10 +40,12 @@ class TasksController < ApplicationController
   end
 
   def create
+
     Task.create(name: params[:name],
                 frequency: params[:frequency],
                 completeness_level: params[:completeness_level],
                 user_id: current_user[:id])
+byebug
     redirect_to "/tasks"
   end
 
