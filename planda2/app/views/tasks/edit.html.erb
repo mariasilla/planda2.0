@@ -8,5 +8,6 @@
     <%= c.submit %>
 <% end %>
 
-
-<a href='/tasks/<%= @task[:id] %>'></a><button><%=link_to "VANISH this task", @task, method: :delete %></button>
+<br>
+<br>
+<a href='/tasks/<%= @task[:id] %>'></a><button><%=link_to "Delete this task", @task, method: :delete %></button>
