@@ -19,6 +19,7 @@ class TasksController < ApplicationController
 
   def show
     @task=Task.find(params[:id])
+    # @completionRate = @task[:completed]/@task[:cycles]
     @comments=Comment.where(task_id: params[:id])
     @compliment = Compliment.new
   end
