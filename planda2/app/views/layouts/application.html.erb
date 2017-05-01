@@ -9,14 +9,14 @@
   </head>
   <body>
   <nav>
-    <div class="nav-wrapper">
+    <div class="nav-wrapper black">
     <% if user_signed_in? %>
       <a href="/tasks" class="brand-logo center">PLANDA</a>
       <ul id="nav-mobile" class="right hide-on-med-and-down">
         <li><a href="/tasks">My Tasks</a></li>
         <li><a href="/teams">My Teams</a></li>
         <li><a href="/users/edit">Edit Account</a></li>
-        <li><a href="/users/sign_out">Sign Out</a></li>
+        <li><%= link_to('Logout', destroy_user_session_path, :method => :delete) %>  </li>
         <% else %>
         <%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link'  %> |
        <%= link_to "Login", new_user_session_path, :class => 'navbar-link'  %>
@@ -38,7 +38,7 @@
                   <li><a class="grey-text text-lighten-3" href="/teams">My Teams</a></li>
                   <li><a class="grey-text text-lighten-3" href="/tasks">My Tasks</a></li>
                   <li><a class="grey-text text-lighten-3" href="/users/edit">Edit Account</a></li>
-                  <li><a class="grey-text text-lighten-3" href="/users/sign_out">Logout</a></li>
+                  <li><%= link_to('Logout', destroy_user_session_path, :method => :delete) %>  </li>
                 </ul>
               </div>
             </div>

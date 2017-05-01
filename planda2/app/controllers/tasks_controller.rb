@@ -13,6 +13,7 @@ class TasksController < ApplicationController
     @weekTasksDone=@weekTasks.where(:completeness_level =>"Done")
     @onceTasksToDo=@onceTasks.where.not(:completeness_level =>"Done")
     @onceTasksDone=@onceTasks.where(:completeness_level =>"Done")
+
   end
 
   def show
