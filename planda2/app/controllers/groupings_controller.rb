@@ -4,7 +4,7 @@ class GroupingsController < ApplicationController
     @grouping = Grouping.new
     Grouping.create(
       user_id: current_user[:id],
-      team_id: find(params[:chosen_team])
+      team_id: params[:chosen_team]
       )
     redirect_to "/teams"
   end
