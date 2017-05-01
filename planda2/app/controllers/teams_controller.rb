@@ -13,9 +13,15 @@ class TeamsController < ApplicationController
   end
 
   def new
+    @team = Team.new
   end
 
   def create
+    @user = current_user[:id]
+    @team = Team.create(name: params[:team_name])
+    Grouping.create(user_id: current_user[:id],
+      team_id: @team[:id])
+    redirect_to "/teams"
   end
 
   def edit

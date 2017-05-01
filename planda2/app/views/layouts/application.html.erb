@@ -3,23 +3,52 @@
   <head>
     <title>Planda2</title>
     <%= csrf_meta_tags %>
-
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/css/materialize.min.css">
   </head>
-
   <body>
-<p class="navbar-text pull-right">
-<% if user_signed_in? %>
- Logged in as <strong><%= current_user[:name] %></strong>.
- <%= link_to 'My Teams', teams_path, :class => 'navbar-link' %> |
- <%= link_to 'Tasks', tasks_path, :class => 'navbar-link' %> |
- <%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %> |
- <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %> <br>
-<% else %>
- <%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link'  %> |
- <%= link_to "Login", new_user_session_path, :class => 'navbar-link'  %>
-<% end %>
+  <nav>
+    <div class="nav-wrapper black">
+    <% if user_signed_in? %>
+      <a href="/tasks" class="brand-logo center">PLANDA</a>
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
+        <li><a href="/tasks">My Tasks</a></li>
+        <li><a href="/teams">My Teams</a></li>
+        <li><a href="/users/edit">Edit Account</a></li>
+        <li><%= link_to('Logout', destroy_user_session_path, :method => :delete) %>  </li>
+        <% else %>
+        <%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link'  %> |
+       <%= link_to "Login", new_user_session_path, :class => 'navbar-link'  %>
+      <% end %>
+      </ul>
+    </div>
+  </nav>
     <%= yield %>
+<footer class="page-footer black">
+          <div class="container">
+            <div class="row">
+              <div class="col l6 s12">
+                <h5 class="white-text">Footer Content</h5>
+                <p class="grey-text text-lighten-4">You can use rows and columns here to organize your footer content.</p>
+              </div>
+              <div class="col l4 offset-l2 s12">
+                <h5 class="white-text">Links</h5>
+                <ul>
+                  <li><a class="grey-text text-lighten-3" href="/teams">My Teams</a></li>
+                  <li><a class="grey-text text-lighten-3" href="/tasks">My Tasks</a></li>
+                  <li><a class="grey-text text-lighten-3" href="/users/edit">Edit Account</a></li>
+                  <li><%= link_to('Logout', destroy_user_session_path, :method => :delete) %>  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="footer-copyright">
+            <div class="container">
+            © 2017 Copyright
+            <a class="grey-text text-lighten-4 right" href="#!">More Links</a>
+            </div>
+          </div>
+        </footer>
   </body>
 </html>
