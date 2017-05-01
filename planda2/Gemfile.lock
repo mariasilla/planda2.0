@@ -221,7 +221,7 @@ DEPENDENCIES
   devise
   httparty
   jbuilder (~> 2.5)
-  jquery-rails
+  jquery-rails (~> 4.3, >= 4.3.1)
   listen (~> 3.0.5)
   materialize-sass
   pg (~> 0.18)
