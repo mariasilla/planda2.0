@@ -65,3 +65,5 @@ gem 'httparty'
 gem 'compliments'
 
 gem 'sidekiq'
+
+gem 'unsplash'
