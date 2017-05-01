@@ -7,3 +7,6 @@
  Completeness Level: <%= text_field_tag :completeness_level, @task.completeness_level %> <br>
     <%= c.submit %>
 <% end %>
+
+
+<a href='/tasks/<%= @task[:id] %>'></a><button><%=link_to "VANISH this task", @task, method: :delete %></button>

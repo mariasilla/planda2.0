@@ -49,7 +49,7 @@ end
 
   def destroy
     Task.destroy(params[:id])
-    redirect_to "/"
+    redirect_to "/tasks/"
   end
 
 end
