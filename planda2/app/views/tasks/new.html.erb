@@ -4,39 +4,34 @@
 <form action ="/tasks" method="POST">
 <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
 
-  New Task Name: <input name="name"><br><br>
- Frequency: <select name="frequency">
-  <option value ="once">Once</option>
-  <option value ="daily">Daily</option>
-  <option value ="weekly">Weekly</option>
-  </select><br><br>
+ New Task Name: <input name="name"><br><br>
 
+ Frequency:
   <select class="browser-default">
-    <option value="" disabled selected>Choose your option</option>
-    <option value="1">Option 1</option>
-    <option value="2">Option 2</option>
-    <option value="3">Option 3</option>
-  </select
-
-
-
-  Completeness Level: <select name="completeness_level">
-  <option value ="still need to start">Still Need to Start</option>
-  <option value ="barely started">Barely Started</option>
-  <option value ="half way through">Half Way Through</option>
-  <option value ="almost done">Almost Done</option>
-  <option value ="finished">Finished!</option>
-
+  <option value="" disabled selected>Select...</option>
+  <option value ="Once">Once</option>
+  <option value ="Daily">Daily</option>
+  <option value ="Weekly">Weekly</option>
   </select><br><br>
 
+ Completeness Level:
+  <select class="browser-default">
+  <option value="" disabled selected>Select...</option>
+  <option value ="Still Need to Start">Still Need to Start</option>
+  <option value ="Barely started">Barely Started</option>
+  <option value ="Half way Through">Half Way Through</option>
+  <option value ="Almost Done">Almost Done</option>
+  <option value ="Done">Done</option>
+  </select><br><br>
 
-  <input name = 'user_id' type = 'hidden' value='@user[:id]'>
+  <input name = 'user_id' type = 'hidden' value='@user["id"]'>
+
   <button type="submit">Add New Task</button>
 
 </form>
 
-
-
-
+<br>
 
 <form action = "/tasks"><button type="submit">Cancel</button></form>
+
+
