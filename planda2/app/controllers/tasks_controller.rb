@@ -3,9 +3,10 @@ class TasksController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @dayTasks=Task.where(:frequency => "daily", :user_id => current_user[:id])
-    @weekTasks=Task.where(:frequency => "weekly", :user_id => current_user[:id])
-    @onceTasks=Task.where(:frequency => "once", :user_id => current_user[:id])
+    @tasks=Task.where(:user_id => current_user[:id])
+    @dayTasks=@tasks.where(:frequency => "Daily")
+    @weekTasks=@tasks.where(:frequency => "Weekly")
+    @onceTasks=@tasks.where(:frequency => "Once")
 
     @dayTasksToDo=@dayTasks.where.not(:completeness_level =>"Done")
     @dayTasksDone=@dayTasks.where(:completeness_level =>"Done")
