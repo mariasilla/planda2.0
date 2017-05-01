@@ -1,4 +1,4 @@
-<h1>You're the member of these teams:</h1>
+<h1>You're a member of these teams:</h1>
 
 <% @teams.each do |team|%>
 <ul>
@@ -6,3 +6,22 @@
 </ul>
 
 <% end %>
+
+<h2>Add yourself to team</h2>
+
+<div class = "input-field">
+  <form action="/groupings" id="jointeam" method = "POST">
+    <select name="team-chosen">
+      <% @all_teams.each do |team| %>
+         <option value= '<%= team["name"]  %>' > <%= team["name"] %></option>
+      <% end %>
+    </select>
+
+  </form>
+</div>
+
+<script>$(document).ready(function() {
+    $('select').material_select();
+});</script>
+
+
