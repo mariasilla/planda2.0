@@ -64,3 +64,5 @@ gem 'compliments'
 gem 'sidekiq'
 
 gem 'unsplash'
+
+gem 'resque'
