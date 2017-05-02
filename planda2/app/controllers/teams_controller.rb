@@ -34,10 +34,4 @@ class TeamsController < ApplicationController
        redirect_to "/teams"
   end
 
-
-  def destroy
-    Grouping.where(:team_id =>params[:id]).destroy_all
-    Team.destroy(params[:id])
-    redirect_to "/"
-  end
 end
