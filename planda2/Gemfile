@@ -55,8 +55,6 @@ gem 'materialize-sass'
 
 gem 'twilio-ruby'
 
-gem 'cloudinary'
-
 gem 'httparty'
 
 gem 'compliments'
