@@ -4,7 +4,7 @@
         <div class="col s6">
           <div class="card">
             <div class="card-image">
-              <img src="images/panda.png">
+              <img src="<%=@task["image_url"]%>">
             </div>
             <div class="card-content">
               <h3><%=@task["name"]%></h3><br>
@@ -23,6 +23,15 @@
         <h3><%= @compliment %></h3>
       </div>
 </div>
+
+<% if @flickr %>
+  <%= @flickr.num_results %> photos found for <%= @flickr.search_query %>. Here's one:
+  <br/>
+  <%= image_tag @flickr.random_photo_url %>
+  <br/>
+  <%= @flickr.random_photo_description %>
+<% end %>
+
 
 <h2>Comments:</h2>
 <% @comments.each do |comment|%>

@@ -66,4 +66,4 @@ gem 'compliments'
 
 gem 'sidekiq'
 
-gem 'unsplash'
+gem 'flickr_search', '~> 0.0.4'
