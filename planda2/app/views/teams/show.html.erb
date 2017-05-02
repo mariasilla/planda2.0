@@ -9,8 +9,15 @@
 <h1><%= @team["name"]%> team tasks:</h1>
 <% @tasks.each do |task|%>
 <ul>
-  <li><%=task["name"]%><br></li>
+
+  <li><a href="/tasks/<%=task["id"]%>"><%= task["name"]%><br></li>
 </ul>
 <% end %>
 
+
+
+
 <a href="/teams"> Back to your teams </a>
+
+
+
