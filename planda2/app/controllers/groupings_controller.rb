@@ -17,10 +17,11 @@ class GroupingsController < ApplicationController
   end
 
   def destroy
-    @grouping = Grouping.find_by(:user_id=>current_user.id,:team_id=>params[:team_id]).first
-    unless @grouping.destroy()
-      pp @grouping.errors
-    end
+    @grouping = Grouping.find_by(:user_id=>current_user.id,:team_id=>params[:team_id])
+    @grouping.destroy
+    # unless @grouping.destroy()
+    #   pp @grouping.errors
+    # end
 
     redirect_to "/teams"
   end

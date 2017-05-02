@@ -4,7 +4,7 @@
 <ul>
   <li><a href="/teams/<%=team["id"]%>"><%=team["name"]%></a>
   <div class = "input-field">
-      <%= button_to 'leave team', "groupings/", team_id: team.id, :method => 'destroy', data: {:confirm => 'Are you sure?'}%>
+      <%= button_to 'leave team', destroy_groupings_path(:team_id => team.id), method: :delete, data: {:confirm => 'Are you sure?'}%>
   </div>
 </li>
 </ul>
