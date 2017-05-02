@@ -25,7 +25,7 @@ class TeamsController < ApplicationController
     @teamCompletions = Task.where(:team_id => params[:id]).sum('completed')
 
     if @teamCycles>0
-      @teamCompletionRate = @teamCompletions/@teamCycles
+      @teamCompletionRate = (Float(@teamCompletions)/Float(@teamCycles))*100
     else
       @teamCompletionRate=0
     end

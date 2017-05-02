@@ -66,3 +66,5 @@ gem 'sidekiq'
 gem 'unsplash'
 
 gem 'resque'
+
+gem 'resque-scheduler'

@@ -31,7 +31,7 @@ end
       end
 
     if  @task[:cycles]>0
-      @completionRate = @task[:completed]/@task[:cycles]
+      @completionRate = (Float(@task[:completed])/Float(@task[:cycles]) )*100
     else
       @completionRate=0
     end

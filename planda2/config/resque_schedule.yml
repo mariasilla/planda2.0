@@ -1,0 +1,5 @@
+do_daily_check_job:
+  every: 30s
+  class: DailyCheckJob
+  args:
+  description: Runs the perform method in MyJob
