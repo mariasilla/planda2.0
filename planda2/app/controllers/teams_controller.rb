@@ -7,6 +7,7 @@ class TeamsController < ApplicationController
   end
 
   def show
+    @all_teams = Team.all
     @team=Team.find(params[:id])
     @users = @team.users
     @tasks=Task.where(:team_id => params[:id])

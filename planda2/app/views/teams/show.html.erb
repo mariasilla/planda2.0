@@ -119,13 +119,9 @@
 </div>
 
 
-<form action="/groupings" id="jointeam" method = "POST">
-  <select>
-    <% @all_teams.each do |team| %>
-       <option value="#{team}">#{team}</option>
-    <% end %>
-  </select>
-</form>
+<div class = "input-field">
+    <%= button_to 'Delete Team', destroy_teams_path(:team_id => @team.id), method: :delete, data: {:confirm => 'Are you sure?'} %>
+</div>
 
 
 <a href="/teams"> Back to your teams </a>
