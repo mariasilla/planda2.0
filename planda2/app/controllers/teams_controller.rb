@@ -10,6 +10,14 @@ class TeamsController < ApplicationController
     @team=Team.find(params[:id])
     @users = @team.users
     @tasks=@team.tasks
+    @teamCycles = Task.where(:team_id => params[:id]).sum('cycles')
+    @teamCompletions = Task.where(:team_id => params[:id]).sum('completed')
+
+    if @teamCycles>0
+      @teamCompletionRate = @teamCompletions/@teamCycles
+    else
+      @teamCompletionRate=0
+    end
   end
 
   def new
