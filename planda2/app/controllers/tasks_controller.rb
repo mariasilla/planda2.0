@@ -4,6 +4,7 @@ class TasksController < ApplicationController
 
   def index
     @tasks=Task.where(:user_id => current_user[:id])
+    puts "current_user #{current_user[:id]}"
     @dayTasks=@tasks.where(:frequency => "Daily")
     @weekTasks=@tasks.where(:frequency => "Weekly")
     @onceTasks=@tasks.where(:frequency => "Once")

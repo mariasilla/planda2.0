@@ -1,13 +1,38 @@
 
 
-<%= form_for @task, :method => :PUT do |c| %>
-
- Name: <%= text_field_tag :name, @task.name %> <br>
- Frequency: <%= text_field_tag :frequency, @task.frequency %> <br>
- Completeness Level: <%= text_field_tag :completeness_level, @task.completeness_level %> <br>
-    <%= c.submit %>
-<% end %>
-
+<h1> EDIT TASK</h1>
+<div class="input-field">
+<%= form_for @task, controller: "tasks", action: "update" do |f| %>
+<!-- <form action ='/tasks/<%= @task[:id] %>' method="PUT"> -->
+<%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+  Name:
+  <input name="name" value = "<%= @task["name"] %>"><br><br>
+   <div class="input-field col s12">
+      Frequency:
+     <select name="frequency" material-select = >
+       <option value="" disabled selected>Choose your option</option>
+       <option value="Once">Once</option>
+       <option value="Daily">Daily</option>
+       <option value="Weekly">Weekly</option>
+     </select>
+   </div><br><br>
+   <div class="input-field col s12">
+      Completeness Level:
+     <select name="completeness_level" material-select>
+       <option value="" disabled selected>Choose your option</option>
+       <option value="Still Need to Start">Still Need to Start</option>
+       <option value="Barely started">Barely started</option>
+       <option value="Half Way Through">Half Way Through</option>
+       <option value="Almost Done">Almost Done</option>
+       <option value="Done">Done</option>
+     </select>
+   </div><br><br>
+   <input name = 'user_id' type = 'hidden' value='@user["id"]'>
+   <button type="submit">Update Task</button>
+   <form action = "/tasks"><button type="submit">Cancel</button></form>
+ </div>
+ <!-- </form> -->
+ <% end %>
 <br>
 <br>
 <a href='/tasks/<%= @task[:id] %>'></a><button><%=link_to "Delete this task", @task, method: :delete %></button>
