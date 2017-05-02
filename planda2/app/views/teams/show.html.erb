@@ -1,3 +1,4 @@
+
 <h1><%= @team["name"]%> team members:</h1>
 <h3>Team Task Completion Rate: <%=@teamCompletionRate%></h3>
 
@@ -14,6 +15,126 @@
   <li><a href="/tasks/<%=task["id"]%>"><%= task["name"]%><br></li>
 </ul>
 <% end %>
+
+<div class="row">
+  <div class="col s5">
+    <h1><%= @team["name"]%></h1>
+  </div>
+  <div class="col s7">
+    <h3>Team Task Completion Rate: <%=@teamCompletionRate%>%</h3>
+  </div>
+</div>
+<h5>Members:</h5>
+<div class="row">
+  <% @users.each do |user|%>
+    <div class="col s3">
+      <%=user["name"]%><br>
+      </div>
+  <% end %>
+  </div>
+
+<h1>Team Tasks:</h1>
+<a href="/tasks/new"> Add a New Task </a><br><br>
+<div class="row">
+  <div id='once' class="col s4">
+    <h5 style="text-align:center">Once:</h5>
+    <div class="row">
+
+      <div id='onceToDo' class="col s6">
+        <h6 style="text-align:center">To Do:</h6>
+
+        <% @onceTasksToDo.each do |task|%>
+          <span class="white-text"><a href="/tasks/<%=task["id"]%>">
+            <div class="row">
+              <div class="col s12">
+                <div class="card-panel black">
+                  <%=task["name"]%>
+                </div>
+              </div>
+            </div></a></span>
+        <% end %>
+      </div>
+      <div id='onceDone' class="col s6">
+        <h6 style="text-align:center">Done:</h6>
+        <% @onceTasksDone.each do |task|%>
+          <span class="white-text"><a href="/tasks/<%=task["id"]%>">
+            <div class="row">
+              <div class="col s12">
+                <div class="card-panel black">
+                  <%=task["name"]%>
+                </div>
+              </div>
+            </div></a></span>
+        <% end %>
+      </div>
+    </div>
+  </div>
+
+  <div id='daily' class="col s4">
+    <h5 style="text-align:center">Daily:</h5>
+    <div class="row">
+      <div id='dailyToDo' class="col s6">
+        <h6 style="text-align:center">To Do:</h6>
+        <% @dayTasksToDo.each do |task|%>
+          <span class="white-text"><a href="/tasks/<%=task["id"]%>">
+            <div class="row">
+              <div class="col s12">
+                <div class="card-panel black">
+                  <%=task["name"]%>
+                </div>
+              </div>
+            </div></a></span>
+        <% end %>
+      </div>
+      <div id='dailyDone' class="col s6">
+        <h6 style="text-align:center">Done:</h6>
+        <% @dayTasksDone.each do |task|%>
+          <span class="white-text"><a href="/tasks/<%=task["id"]%>">
+            <div class="row">
+              <div class="col s12">
+                <div class="card-panel black">
+                  <%=task["name"]%>
+                </div>
+              </div>
+            </div></a></span>
+        <% end %>
+      </div>
+    </div>
+  </div>
+
+  <div id='weekly' class="col s4">
+    <h5 style="text-align:center">Weekly:</h5>
+      <div class="row">
+        <div id='weeklyToDo' class="col s6">
+         <h6 style="text-align:center">To Do:</h6>
+          <% @weekTasksToDo.each do |task|%>
+            <span class="white-text"><a href="/tasks/<%=task["id"]%>">
+              <div class="row">
+                <div class="col s12">
+                  <div class="card-panel black">
+                    <%=task["name"]%>
+                  </div>
+                </div>
+              </div></a></span>
+          <% end %>
+        </div>
+        <div id='weeklyDone' class="col s6">
+          <h6 style="text-align:center">Done:</h6>
+          <% @weekTasksDone.each do |task|%>
+            <span class="white-text"><a href="/tasks/<%=task["id"]%>">
+              <div class="row">
+                <div class="col s12">
+                  <div class="card-panel black">
+                    <%=task["name"]%>
+                  </div>
+                </div>
+              </div></a></span>
+          <% end %>
+        </div>
+      </div>
+    </div>
+</div>
+
 
 
 
