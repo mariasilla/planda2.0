@@ -1,13 +1,14 @@
 class DailyCheckJob < ApplicationJob
   queue_as :default
 
-  def perform(*args)
-    if task.frequency == 'daily'
-      if task.completeness == 'done'
-        task.completed++
+  def perform(task)
+    if task.frequency.downcase == 'daily'
+      if task.completeness_level.downcase == 'done'
+        task.completed += 1
       end
-      task.completeness=='not started'
-      task.cycles++
+      task.completeness_level.downcase == 'not started'
+      task.cycles += 1
+      task.save
     end
   end
 end

@@ -1,10 +1,5 @@
-Sidekiq.configure_server do |config|
-  config.redis = { url: 'redis://redis.example.com:7372/12' }
-  config.periodic do |mgr|
 
-  end
-end
 
-Sidekiq.configure_client do |config|
-  config.redis = { url: 'redis://redis.example.com:7372/12' }
+every 1.day, :at => '12:00 am' do
+  DailyCheckJob.perform_now(Task.last)
 end
