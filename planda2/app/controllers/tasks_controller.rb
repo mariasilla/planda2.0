@@ -20,7 +20,9 @@ end
     @task=Task.find(params[:id])
     # @completionRate = @task[:completed]/@task[:cycles]
     @comments=Comment.where(task_id: params[:id])
-    @compliment = Compliment.new
+    if @task.completeness_level == "Done"
+        @compliment = Compliment.new
+      end
   end
 
   def edit
