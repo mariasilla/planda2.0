@@ -56,10 +56,16 @@ end
 
   def create
     @task = Task.new
+    @taskname=params[:name]
+    @giphy=Giphy.search(@taskname, {limit: 1, offset: 25})
+    @giphy.each do |giphy|
+       @giphy_url=giphy.embed_url
+    end
+
     Task.create(name: params[:name],
                 frequency: params[:frequency],
                 completeness_level: params[:completeness_level],
-                user_id: current_user[:id],team_id: params[:team_id])
+                user_id: current_user[:id],team_id: params[:team_id],image_url: @giphy_url)
     redirect_to "/tasks"
   end
 
