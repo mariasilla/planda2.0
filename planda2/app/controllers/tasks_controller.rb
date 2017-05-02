@@ -26,6 +26,8 @@ end
 
     if @task.completeness_level == "Done"
         @compliment = Compliment.new
+    else
+        @compliment = ""
       end
 
     if  @task[:cycles]>0
