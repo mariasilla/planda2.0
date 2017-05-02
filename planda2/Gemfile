@@ -66,4 +66,4 @@ gem 'compliments'
 
 gem 'sidekiq'
 
-gem 'flickr_search', '~> 0.0.4'
+gem 'giphy'
