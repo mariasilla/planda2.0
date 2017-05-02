@@ -18,7 +18,6 @@ end
 
   def show
     @task=Task.find(params[:id])
-    # @completionRate = @task[:completed]/@task[:cycles]
     @comments=Comment.where(task_id: params[:id])
 
     @compliment = Compliment.new
@@ -28,6 +27,12 @@ end
     if @task.completeness_level == "Done"
         @compliment = Compliment.new
       end
+
+    if  @task[:cycles]>0
+      @completionRate = @task[:completed]/@task[:cycles]
+    else
+      @completionRate=0
+    end
 
   end
 
