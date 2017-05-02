@@ -1,3 +1,21 @@
+
+<h1><%= @team["name"]%> team members:</h1>
+<h3>Team Task Completion Rate: <%=@teamCompletionRate%></h3>
+
+<% @users.each do |user|%>
+<ul>
+  <li><%=user["name"]%></li>
+</ul>
+<% end %>
+
+<h1><%= @team["name"]%> team tasks:</h1>
+<% @tasks.each do |task|%>
+<ul>
+
+  <li><a href="/tasks/<%=task["id"]%>"><%= task["name"]%><br></li>
+</ul>
+<% end %>
+
 <div class="row">
   <div class="col s5">
     <h1><%= @team["name"]%></h1>
@@ -116,6 +134,7 @@
       </div>
     </div>
 </div>
+
 
 
 

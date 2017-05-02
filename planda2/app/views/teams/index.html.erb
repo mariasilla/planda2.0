@@ -2,24 +2,29 @@
 
 <% @teams.each do |team|%>
 <ul>
-  <li><a href="/teams/<%=team["id"]%>"><%=team["name"]%></a><br></li>
+  <li><a href="/teams/<%=team["id"]%>"><%=team["name"]%></a>
+  <div class = "input-field">
+      <%= button_to 'leave team', destroy_groupings_path(:team_id => team.id), method: :delete, data: {:confirm => 'Are you sure?'}%>
+  </div>
+</li>
 </ul>
+
 
 <% end %>
 
-<h2>Add yourself to team</h2>
+<h2>Join a team</h2>
 
 <div class = "input-field">
   <form action="/groupings" id="jointeam" method = "POST">
   <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
     <select name= "chosen_team" material-select>
       <% @all_teams.each do |team| %>
-         <option value= "<%= team[:id]  %>" > <%= team[:name] %></option>
+         <option value= "<%= team[:id] %>" > <%= team[:name] %></option>
       <% end %>
     </select>
-    <button class="btn waves-effect waves-light" type="submit" >Submit
+    <button class="btn" type="submit" >Submit
     </button>
   </form>
 </div>
 
-<a href="/teams/new"> Add a New Team </a><br><br>
+<a href="/teams/new"> Create a New Team </a><br>

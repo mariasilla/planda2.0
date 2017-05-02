@@ -6,8 +6,10 @@ Rails.application.routes.draw do
   resources :teams
   resources :tasks
   resources :comments
-  resources :groupings
+  resources :groupings, only: [:create]
 
   root to: 'tasks#index'
+
+  delete "/groupings/:team_id", to: 'groupings#destroy', as: :destroy_groupings
 
 end

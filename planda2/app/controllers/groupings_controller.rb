@@ -1,5 +1,12 @@
 class GroupingsController < ApplicationController
 
+  def show
+  end
+
+  def index
+    redirect_to "/teams"
+  end
+
   def create
     @grouping = Grouping.new
     Grouping.create(
@@ -10,7 +17,12 @@ class GroupingsController < ApplicationController
   end
 
   def destroy
-    Grouping.destroy(params[:id])
+    @grouping = Grouping.find_by(:user_id=>current_user.id,:team_id=>params[:team_id])
+    @grouping.destroy
+    # unless @grouping.destroy()
+    #   pp @grouping.errors
+    # end
+
     redirect_to "/teams"
   end
 
