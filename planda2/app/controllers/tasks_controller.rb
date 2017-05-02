@@ -4,6 +4,7 @@ class TasksController < ApplicationController
 
   def index
     @tasks=Task.where(:user_id => current_user[:id])
+    puts "current_user #{current_user[:id]}"
     @dayTasks=@tasks.where(:frequency => "Daily")
     @weekTasks=@tasks.where(:frequency => "Weekly")
     @onceTasks=@tasks.where(:frequency => "Once")
@@ -18,11 +19,24 @@ end
 
   def show
     @task=Task.find(params[:id])
-    # @completionRate = @task[:completed]/@task[:cycles]
     @comments=Comment.where(task_id: params[:id])
-    @compliment = Compliment.new
+    @team_id=@task.team_id
+    @team=Team.find(@team_id)
     @playlistArray = ["https://open.spotify.com/embed?uri=spotify:user:spotify:playlist:37i9dQZF1DWUNIrSzKgQbP","https://open.spotify.com/embed?uri=spotify:user:spotify:playlist:37i9dQZF1DWU0ScTcjJBdj","https://open.spotify.com/embed?uri=spotify:user:spotify:playlist:37i9dQZF1DX7KNKjOK0o75","https://open.spotify.com/embed?uri=spotify:user:spotify:playlist:37i9dQZF1DX6ziVCJnEm59","https://open.spotify.com/embed?uri=spotify:user:spotify:playlist:37i9dQZF1DWSqmBTGDYngZ","https://open.spotify.com/embed?uri=spotify:user:spotify:playlist:37i9dQZF1DX9XIFQuFvzM4","https://open.spotify.com/embed?uri=spotify:user:spotify:playlist:37i9dQZF1DX6z20IXmBjWI","https://open.spotify.com/embed?uri=spotify:user:spotify:playlist:37i9dQZF1DX82pCGH5USnM","https://open.spotify.com/embed?uri=spotify:user:sonymusic:playlist:6bfxfMIcYKN4ce6XQOxoqY","https://open.spotify.com/embed?uri=spotify:user:spotify:playlist:37i9dQZF1DWVu0D7Y8cYcs"]
     @randomPlaylist = @playlistArray.sample
+
+    if @task.completeness_level == "Done"
+        @compliment = Compliment.new
+    else
+        @compliment = ""
+      end
+
+    if  @task[:cycles]>0
+      @completionRate = @task[:completed]/@task[:cycles]
+    else
+      @completionRate=0
+    end
+
   end
 
   def edit
@@ -56,6 +70,7 @@ end
   end
 
   def destroy
+    Comment.where(:task_id =>params[:id]).destroy_all
     Task.destroy(params[:id])
     redirect_to "/tasks/"
   end

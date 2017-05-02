@@ -4,12 +4,16 @@
         <div class="col s6">
           <div class="card">
             <div class="card-image">
+
               <iframe src="<%=@task["image_url"]%>" width="480" height="304" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
+
             </div>
             <div class="card-content">
               <h3><%=@task["name"]%></h3><br>
               <h5><%=@task["frequency"]%></h5><br>
               <h5><%=@task["completeness_level"]%></h5><br>
+              <h5>Completion %: <%=@completionRate%></h5><br>
+              <h5>This task is for team: <%=@team["name"]%></h5>
             </div>
             <div class="card-action">
               <a href="/tasks/<%= @task.id %>/edit">Edit</a><br><br>
@@ -17,10 +21,9 @@
            </div>
           </div>
          <div class="col s3">
+          <h3><%= @compliment %></h3>
            <iframe src="<%=@randomPlaylist%>" width="300" height="380" frameborder="0" allowtransparency="true"></iframe>
-       </div>
-        <div class="col s3">
-        <h3><%= @compliment %></h3>
+
       </div>
 </div>
 
