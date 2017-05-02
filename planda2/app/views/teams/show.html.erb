@@ -118,14 +118,6 @@
     </div>
 </div>
 
-<h2>Join a team</h2>
-<form action="/groupings" id="jointeam" method = "POST">
-  <select>
-    <% @all_teams.each do |team| %>
-       <option value="#{team}">#{team}</option>
-    <% end %>
-  </select>
-</form>
 
 <div class = "input-field">
     <%= button_to 'Delete Team', destroy_teams_path(:team_id => @team.id), method: :delete, data: {:confirm => 'Are you sure?'} %>
