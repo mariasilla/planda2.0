@@ -48,6 +48,7 @@ end
   end
 
   def destroy
+    Comment.where(:task_id =>params[:id]).destroy_all
     Task.destroy(params[:id])
     redirect_to "/tasks/"
   end
