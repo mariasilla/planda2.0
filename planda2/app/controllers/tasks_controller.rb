@@ -25,7 +25,6 @@ end
     @randomPlaylist = @playlistArray.sample
 
     @flickr = FlickrSearch::FlickrSearch.new.search("coffee")
-
   end
 
   def edit
@@ -45,10 +44,12 @@ end
 
   def create
     @task = Task.new
+    @taskname=name: params[:name]
+    @flickr = FlickrSearch::FlickrSearch.new.search(@taskname)
     Task.create(name: params[:name],
                 frequency: params[:frequency],
                 completeness_level: params[:completeness_level],
-                user_id: current_user[:id],team_id: params[:team_id],image_url: params[:image_url])
+                user_id: current_user[:id],team_id: params[:team_id],image_url: @flickr.random_photo_url)
     redirect_to "/tasks"
   end
 
