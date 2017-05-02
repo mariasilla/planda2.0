@@ -54,4 +54,10 @@ class TeamsController < ApplicationController
        redirect_to "/teams"
   end
 
+  def destroy
+    team=Team.find(params[:team_id])
+    team.destroy
+    redirect_to "/teams"
+  end
+
 end

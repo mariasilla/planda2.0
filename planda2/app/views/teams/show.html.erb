@@ -136,7 +136,13 @@
 </div>
 
 
-
+<form action="/groupings" id="jointeam" method = "POST">
+  <select>
+    <% @all_teams.each do |team| %>
+       <option value="#{team}">#{team}</option>
+    <% end %>
+  </select>
+</form>
 
 
 <a href="/teams"> Back to your teams </a>
