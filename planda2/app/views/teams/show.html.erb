@@ -5,8 +5,12 @@
   </div>
 
 
+
 <div class="col s5">
 <h5>Members:</h5>
+
+</div>
+
 <div class="row">
   <% @users.each do |user|%>
     <div class="col s3">
@@ -17,8 +21,11 @@
   </div>
   </div>
 
-<h1>Team Tasks:</h1>
+
+<h4>Team Tasks:</h4>
 <div id='bigLink'><a href="/tasks/new"> Add a New Task </a></div>
+
+
 <div class="row">
   <div id='once' class="col s4">
     <h5 style="text-align:center">Once:</h5>
@@ -121,7 +128,7 @@
 
 
 <div class = "input-field">
-    <%= button_to 'Delete Team', destroy_teams_path(:team_id => @team.id), method: :delete, data: {:confirm => 'Are you sure?'} %>
+    <%= button_to 'Delete Team', destroy_teams_path(:team_id => @team.id), method: :delete, class: 'btn waves-effect waves-light', data: {:confirm => 'Are you sure?'} %>
 </div>
 
 
