@@ -28,11 +28,12 @@
      </select>
    </div><br><br>
    <input name = 'user_id' type = 'hidden' value='@user["id"]'>
-   <button type="submit">Update Task</button>
-   <form action = "/tasks"><button type="submit">Cancel</button></form>
+   <button class= "btn" type="submit">Update Task</button>
+   <form action = "/tasks"><button class= "btn" type="submit">Cancel</button></form>
  </div>
  <!-- </form> -->
  <% end %>
 <br>
 <br>
-<a href='/tasks/<%= @task[:id] %>'></a><button><%=link_to "Delete this task", @task, method: :delete %></button>
+
+<a href='/tasks/<%= @task[:id] %>'></a><button class= "btn orange-btn waves-effect waves-light"><%=button_to "Delete this task", @task, method: :delete %></button>
