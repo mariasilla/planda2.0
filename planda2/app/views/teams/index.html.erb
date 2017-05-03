@@ -3,23 +3,9 @@
 <a href="/teams/new"> Create a New Team </a><br><br>
 <div class='row'>
 <div class="col s6">
+
+
 <h2>Join a team</h2>
-
-<h4>You're a member of these teams:</h4>
-
-<% @teams.each do |team|%>
-<ul>
-  <li><a href="/teams/<%=team["id"]%>"><%=team["name"]%></a>
-  <div class = "input-field">
-      <%= button_to 'leave team', destroy_groupings_path(:team_id => team.id), class: 'btn waves-effect waves-light', method: :delete, data: {:confirm => 'Are you sure?'}%>
-  </div>
-</li>
-</ul>
-
-
-<% end %>
-
-<h4>Join a team</h4>
 
 
 <div class = "input-field">
