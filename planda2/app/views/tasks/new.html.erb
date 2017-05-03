@@ -3,11 +3,11 @@
 <form action ="/tasks" method="POST">
 <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
 
- New Task Name: <input name="name"><br><br>
+ New Task Name: <input name="name" required><br><br>
 
    <div class="input-field col s12">
       Frequency:
-     <select name="frequency" material-select>
+     <select name="frequency" material-select required>
        <option value="" disabled selected>Choose your option</option>
        <option value="Once">Once</option>
        <option value="Daily">Daily</option>
@@ -17,7 +17,7 @@
 
    <div class="input-field col s12">
       Completeness Level:
-     <select name="completeness_level" material-select>
+     <select name="completeness_level" material-select required>
        <option value="" disabled selected>Choose your option</option>
        <option value="Still Need to Start">Still Need to Start</option>
        <option value="Barely started">Barely started</option>
@@ -29,7 +29,7 @@
 
    <div class="input-field col s12">
     Team:
-     <select name="team_id" material-select>
+     <select name="team_id" material-select required>
      <% @teams.each do |team|%>
        <option value="<%=team["id"]%>"><%=team["name"]%></option><br>
      <%end %>

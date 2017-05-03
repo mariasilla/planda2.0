@@ -62,7 +62,7 @@ class TasksController < ApplicationController
     @giphy=Giphy.search(@taskname, {limit: 1, offset: 25})
     @giphy.each do |giphy|
        @giphy_url=giphy.embed_url
-    end
+      end
 
     Task.create(name: params[:name],
                 frequency: params[:frequency],
