@@ -14,6 +14,7 @@
               <h5><%=@task["completeness_level"]%></h5><br>
               <h5>This task is for user: <%=@user["name"]%></h5>
               <h5>This task is for team: <%=@team["name"]%></h5>
+              <!--this doesn't work--> <!--not getting username but getting teamname-->
             </div>
             <div class="card-action">
               <a href="/tasks/<%= @task.id %>/edit">Edit</a><br><br>
@@ -29,14 +30,16 @@
 
 <h2>Comments:</h2>
 <% @comments.each do |comment|%>
-<%=comment["content"]%> - <%= link_to 'Remove Comment', comment, method: :delete %>
+
+<%=comment["content"]%> - <%= button_to 'Remove Comment', comment,  class: 'btn waves-effect waves-light', method: :delete %>
 <br>
 <!-- remove should be a button. cd. -->
 <%end%>
-
-<form action="/comments" method="POST">
-  <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
-  <%= hidden_field_tag :task_id, value = @task.id %>
-  <label> Comment on this task: </label><input name="content">
-  <button type="submit">Submit</button><br>
-</form>
+<div class= "input-field">
+  <form action="/comments" method="POST">
+    <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+    <%= hidden_field_tag :task_id, value = @task.id %>
+    <label> Comment on this task: </label><input name="content">
+    <button type="submit" class= "btn waves-effect waves-light">Submit</button><br>
+  </form>
+</div>
