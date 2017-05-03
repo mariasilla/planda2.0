@@ -4,7 +4,8 @@
     <h1><%= @team["name"]%></h1>
   </div>
 
-</div>
+
+<div class="col s5">
 <h5>Members:</h5>
 <div class="row">
   <% @users.each do |user|%>
@@ -13,9 +14,11 @@
       </div>
   <% end %>
   </div>
+  </div>
+  </div>
 
 <h1>Team Tasks:</h1>
-<a href="/tasks/new"> Add a New Task </a><br><br>
+<div id='bigLink'><a href="/tasks/new"> Add a New Task </a></div>
 <div class="row">
   <div id='once' class="col s4">
     <h5 style="text-align:center">Once:</h5>
