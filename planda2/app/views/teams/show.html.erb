@@ -5,7 +5,7 @@
   </div>
 
 </div>
-<h5>Members:</h5>
+<h4>Members:</h4>
 <div class="row">
   <% @users.each do |user|%>
     <div class="col s3">
@@ -14,7 +14,7 @@
   <% end %>
   </div>
 
-<h1>Team Tasks:</h1>
+<h4>Team Tasks:</h4>
 <a href="/tasks/new"> Add a New Task </a><br><br>
 <div class="row">
   <div id='once' class="col s4">
@@ -118,7 +118,7 @@
 
 
 <div class = "input-field">
-    <%= button_to 'Delete Team', destroy_teams_path(:team_id => @team.id), method: :delete, data: {:confirm => 'Are you sure?'} %>
+    <%= button_to 'Delete Team', destroy_teams_path(:team_id => @team.id), method: :delete, class: 'btn waves-effect waves-light', data: {:confirm => 'Are you sure?'} %>
 </div>
 
 
