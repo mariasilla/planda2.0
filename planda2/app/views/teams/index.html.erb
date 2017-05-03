@@ -1,3 +1,10 @@
+
+<div id='bigLink'>
+<a href="/teams/new"> Create a New Team </a><br><br>
+<div class='row'>
+<div class="col s6">
+<h2>Join a team</h2>
+
 <h4>You're a member of these teams:</h4>
 
 <% @teams.each do |team|%>
@@ -14,17 +21,40 @@
 
 <h4>Join a team</h4>
 
+
 <div class = "input-field">
   <form action="/groupings" id="jointeam" method = "POST">
-  <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+    <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
     <select name= "chosen_team" material-select>
       <% @all_teams.each do |team| %>
          <option value= "<%= team[:id] %>" > <%= team[:name] %></option>
       <% end %>
     </select>
+
+
     <button class="btn waves-effect waves-light" type="submit" >Submit
     </button>
+
   </form>
 </div>
+</div>
+<div class="col s5">
+<h2>Your teams</h2>
+<div class='row'>
 
-<a href="/teams/new"> Create a New Team </a><br>
+<% @teams.each do |team|%>
+<div class="col s7">
+<a href="/teams/<%=team["id"]%>"><%=team["name"]%></a>
+</div>
+<div class="col s5">
+  <div class = "input-field">
+      <%= button_to 'Leave Team', destroy_groupings_path(:team_id => team.id), class: "btn", method: :delete, data: {:confirm => 'Are you sure?'}%>
+  </div>
+</div>
+
+
+<% end %>
+</div>
+</div>
+</div>
+
