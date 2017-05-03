@@ -15,7 +15,7 @@ class TasksController < ApplicationController
     @weekTasksDone=@weekTasks.where(:completeness_level =>"Done")
     @onceTasksToDo=@onceTasks.where.not(:completeness_level =>"Done")
     @onceTasksDone=@onceTasks.where(:completeness_level =>"Done")
-end
+  end
 
   def show
     @task=Task.find(params[:id])
@@ -39,7 +39,6 @@ end
     else
       @completionRate=0
     end
-
   end
 
   def edit

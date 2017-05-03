@@ -6,6 +6,7 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/css/materialize.min.css"/>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:700" rel="stylesheet">
 
 
   </head>
@@ -13,8 +14,8 @@
   <nav>
     <div class="nav-wrapper black">
     <% if user_signed_in? %>
-    <%= image_tag "planda.png", :class => "header_image" %>
-      <a href="/tasks" class="brand-logo center">PLANDA</a>
+    <%= image_tag "PLANDA-logo-3.png", :class => "header_image" %>
+      <a href="/tasks" class="brand-logo center undaline"><i>P L A N D A</i></a>
       <ul id="nav-mobile" class="right hide-on-med-and-down">
         <li><a href="/tasks">My Tasks</a></li>
         <li><a href="/teams">My Teams</a></li>
@@ -40,7 +41,7 @@
             © 2017 Copyright
             </div>
             <div class="col s4">
-            <%= image_tag "planda.png", :class => "footer_image" %>
+            <%= image_tag "PLANDA-logo-3.png", :class => "footer_image" %>
             </div>
             </div>
             </div>

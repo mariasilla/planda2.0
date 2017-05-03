@@ -14,15 +14,26 @@
  *= require_self
  */
 
+ body {
+  font-family: 'Open Sans', sans-serif;
+ }
+
+ body h4 {
+  color: #039be5;
+  font-size: 1.5em;
+
+ }
 
  .header_image{
   height:100%;
   width:auto;
+  padding: 1%;
  }
 
  .footer_image{
   height:100px;
   width:auto;
+  padding: 1%;
  }
 
   #daily{
@@ -30,6 +41,9 @@
   border-right:  solid 2px black;
  }
 
+ .brand-logo {
+  font-size: 2em;
+ }
 
 
 @import "materialize";
