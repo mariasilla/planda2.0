@@ -62,6 +62,9 @@ class TasksController < ApplicationController
     @giphy=Giphy.search(@taskname, {limit: 1, offset: 25})
     @giphy.each do |giphy|
        @giphy_url=giphy.embed_url
+      #  @new_giphy_url = replaceUrl(@giphy_url)
+      puts ('**********************')
+      puts @giphy_url
       end
 
     Task.create(name: params[:name],
@@ -76,5 +79,12 @@ class TasksController < ApplicationController
     Task.destroy(params[:id])
     redirect_to "/tasks/"
   end
+
+  # def replaceUrl(url)
+  #    encoded_url = URI.encode(url)
+  #    uri = URI.parse(encoded_url)
+  #    uri.scheme = "https"
+  #    uri.to_s
+  # end
 
 end
