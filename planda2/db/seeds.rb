@@ -14,8 +14,8 @@ Team.create(name: "Shoebill")
 Team.create(name: "Ada")
 
 
-User.create(email:"Ali@email.com",password:"123456",name: "Ali", image_url:"https://scontent-iad3-1.xx.fbcdn.net/v/t1.0-1/p240x240/14718765_10107245015278123_1453619577380225262_n.jpg?oh=e4f195ce976f639f617faf7649069fcb&oe=59862E51")
-User.create(email:"Maria@email.com",password:"123456",name: "Maria", image_url:"https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcQUSrX6ZTApwNEJAx3KdyAG6svGzZ4I712XqZu6AbzGekcAm4EOszYhKg")
+User.create(email:"Ali@email.com",password:"123456",name: "Ali")
+User.create(email:"Maria@email.com",password:"123456",name: "Maria")
 
 Task.create(name:"Gym",frequency:"Daily",completeness_level:"Finished!",cycles:0,completed:0,user_id:1,team_id:1)
 Task.create(name:"Tanning",frequency:"Weekly",completeness_level:"Finished!",cycles:0,completed:0,user_id:1,team_id:1)
